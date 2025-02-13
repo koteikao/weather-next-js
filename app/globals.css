@@ -70,3 +70,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.progress {
+  background: linear-gradient(to right, #20f02a, #dd3636);
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { commandIcon } from "@/app/utils/Icons";
+import { commandIcon } from "@/app/utils/icons";
 import { Button } from "@/components/ui/button";
 import { Command, CommandInput } from "@/components/ui/command";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";

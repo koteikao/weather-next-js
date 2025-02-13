@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { github } from "@/app/utils/Icons";
+import { github } from "@/app/utils/icons";
 import { useTheme } from "next-themes";
 import { ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher";
 import Search from "./Search/Search";
