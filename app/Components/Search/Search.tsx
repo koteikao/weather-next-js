@@ -22,15 +22,6 @@ function Search() {
             </div>
           </Button>
         </DialogTrigger>
-
-        <DialogContent className="p-0">
-          <Command className=" rounded-lg border shadow-md">
-            <CommandInput />
-            <ul className="px-3 pb-2">
-              <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
-            </ul>
-          </Command>
-        </DialogContent>
       </Dialog>
     </div>
   );

@@ -49,7 +49,8 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+				"dark-grey": "#0A0A0A",
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

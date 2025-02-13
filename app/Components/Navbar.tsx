@@ -11,6 +11,7 @@ export default function Navbar() {
   const router = useRouter();
   const { theme } = useTheme();
   const isDark = theme === "dark";
+
   return (
     <div className="w-full py-4 flex items-center justify-between">
       <div className="left"></div>
