@@ -7,6 +7,7 @@ import Wind from "./Components/Wind/Wind";
 import DailyForecast from "./Components/DailyForecast/DailyForecast";
 import FeelsLike from "./Components/FeelsLike/FeelsLike";
 import Humidity from "./Components/Humidity/Humidity";
+import Visibility from "./Components/Visibility/Visibility";
 export default function Home() {
   return (
     <main className="mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto">
@@ -23,6 +24,7 @@ export default function Home() {
             <DailyForecast />
             <FeelsLike />
             <Humidity />
+            <Visibility />
           </div>
         </div>
       </div>
