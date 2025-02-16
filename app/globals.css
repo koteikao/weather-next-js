@@ -74,3 +74,7 @@ body {
 .progress {
   background: linear-gradient(to right, #20f02a, #dd3636);
 }
+
+.temperature {
+  background-image: linear-gradient(to right, #00dfff 0%, #00f9ff 20%, yellow);
+}
