@@ -14,15 +14,15 @@ export default function Visibility() {
   const getVisibilityDescription = (visibility: number) => {
     const visibilityInKm = Math.round(visibility / 1000);
     if (visibilityInKm > 10) {
-      return "Good visibility";
+      return "Хорошая видимость";
     } else if (visibilityInKm > 5) {
-      return "Moderate visibility";
+      return "Умеренная видимость";
     } else if (visibilityInKm > 2) {
-      return "Low visibility";
+      return "Низкая видимость";
     } else if (visibilityInKm <= 2) {
-      return "Very low visibility";
+      return "Очень низкая видимость";
     } else {
-      return "Visibility data not available";
+      return "Данные о видимости не доступны";
     }
   };
   return (
@@ -31,7 +31,7 @@ export default function Visibility() {
     border rounded-lg flex flex-col gap-8 dark:bg-dark-gray shadow-sm dark:shadow-none"
     >
       <div className="top">
-        <h2 className="flex items-center gap-2 font-md">{eye}Visibility</h2>
+        <h2 className="flex items-center gap-2 font-md">{eye}Видимость</h2>
         <p className="pt-2 text-2xl">{Math.round(visibility / 1000)}km</p>
       </div>
       <p className="text-sm">{getVisibilityDescription(visibility)}</p>

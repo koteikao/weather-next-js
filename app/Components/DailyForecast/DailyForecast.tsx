@@ -27,7 +27,9 @@ export default function DailyForecast() {
   const todayString = today.toISOString().split("T")[0];
 
   if (!fiveDayForecast || !city || !list) {
-    return <Skeleton className="w-full h-[12rem]" />;
+    return (
+      <Skeleton className="w-full h-[12rem] col-span-full sm-2:col-span-2 md:col-span-2 md-2:col-span-3" />
+    );
   }
 
   if (!forecast || !weather) {
@@ -63,7 +65,7 @@ export default function DailyForecast() {
 
   return (
     <div
-      className="col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2 pt-6 px-4 h-[12rem] 
+      className="col-span-full sm-2:col-span-2 md:col-span-2 md-2:col-span-3 pt-6 px-4 h-[12rem] 
     border rounded-lg flex flex-col gap-8 dark:bg-dark-gray shadow-sm dark:shadow-none"
     >
       <div className="h-full flex gap-10 overflow-hidden">

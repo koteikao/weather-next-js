@@ -11,15 +11,15 @@ export default function Humidity() {
   const { humidity } = forecast.main;
   const getHumidityText = (humidity: number) => {
     if (humidity > 30) {
-      return "Dry: may cause skin irritation";
+      return "Сухая: может вызвать кожные проблемы";
     } else if (humidity >= 30 && humidity < 50) {
-      return "Normal: comfortable";
+      return "Нормальная: комфортно";
     } else if (humidity >= 50 && humidity < 70) {
-      return "Moderate: may cause respiratory problems";
+      return "Умеренная: может вызвать проблемы с дыханием";
     } else if (humidity >= 70) {
-      return "Wet: may cause respiratory problems";
+      return "Влажно: может вызвать проблемы с дыханием";
     }
-    return "Humidity data not available";
+    return "Данные о влажности не доступны";
   };
   return (
     <div
@@ -27,7 +27,7 @@ export default function Humidity() {
     border rounded-lg flex flex-col gap-8 dark:bg-dark-gray shadow-sm dark:shadow-none"
     >
       <div className="top">
-        <h2 className="flex items-center gap-2 font-md">{droplets}Humidity</h2>
+        <h2 className="flex items-center gap-2 font-md">{droplets}Влажность</h2>
         <p className="pt-2 text-2xl">{forecast.main.humidity}%</p>
       </div>
       <p className="text-sm">{getHumidityText(humidity)}</p>

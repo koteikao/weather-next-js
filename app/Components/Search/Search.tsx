@@ -3,7 +3,12 @@
 import { commandIcon } from "@/app/utils/icons";
 import { Button } from "@/components/ui/button";
 import { Command, CommandInput } from "@/components/ui/command";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import React from "react";
 import {
   useGlobalContext,
@@ -19,6 +24,7 @@ export default function Search() {
   const getClickedCoords = (lat: number, lon: number) => {
     setActiveCityCoords([lat, lon]);
   };
+
   return (
     <div className="search-btn">
       <Dialog>
@@ -36,7 +42,11 @@ export default function Search() {
         </DialogTrigger>
 
         <DialogContent className="p-0">
-          <Command className=" rounded-lg border shadow-md">
+          <Command className="rounded-lg border shadow-md">
+            <div className="hidden">
+              <DialogTitle>Search for a city</DialogTitle>
+            </div>
+
             <CommandInput
               value={inputValue}
               onChangeCapture={handleInput}
@@ -53,14 +63,15 @@ export default function Search() {
                   (
                     item: {
                       name: string;
-                      country: string;
-                      state: string;
+                      local_names: {
+                        ru: string;
+                      };
                       lat: number;
                       lon: number;
                     },
                     index: number
                   ) => {
-                    const { name } = item;
+                    const { local_names } = item;
                     return (
                       <li
                         key={index}
@@ -72,7 +83,7 @@ export default function Search() {
                           getClickedCoords(item.lat, item.lon);
                         }}
                       >
-                        <p className=" text">{name}</p>
+                        <p className="text">{local_names?.ru}</p>
                       </li>
                     );
                   }

@@ -19,15 +19,15 @@ export default function Sunset() {
   const sunriseTime = unixTimeToLocalTime(forecast?.sys?.sunrise, timezone);
   return (
     <div
-      className="pt-6 px-4 h-[12rem] 
-    border rounded-lg flex flex-col gap-8 dark:bg-dark-gray shadow-sm dark:shadow-none"
+      className="py-6 px-4 h-[12rem] 
+    border rounded-lg flex flex-col justify-between dark:bg-dark-gray shadow-sm dark:shadow-none"
     >
-      <div className="top">
-        <h2 className="flex items-center gap-2 font-md">{sunset}Sunset</h2>
+      <div className="top flex flex-col items-center justify-center">
+        <h2 className="flex items-center gap-2 font-md">{sunset}Закат</h2>
         <p className="pt-2 text-2xl">{sunsetTime}</p>
       </div>
-      <div className="top">
-        <h2 className="flex items-center gap-2 font-md">{sunrise}Sunrise</h2>
+      <div className="top flex flex-col items-center justify-center">
+        <h2 className="flex items-center gap-2 font-md">{sunrise}Восход</h2>
         <p className="pt-2 text-2xl">{sunriseTime}</p>
       </div>
     </div>

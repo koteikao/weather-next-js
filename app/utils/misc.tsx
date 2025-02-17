@@ -22,23 +22,23 @@ export const unixToDay = (unix: number) => {
 export const airQualityValueText = [
   {
     rating: 20,
-    text: "good",
+    text: "хорошее",
   },
   {
     rating: 40,
-    text: "fair",
+    text: "удовлетворительное",
   },
   {
     rating: 60,
-    text: "moderate",
+    text: "среднее",
   },
   {
     rating: 80,
-    text: "poor",
+    text: "плохое",
   },
   {
     rating: 100,
-    text: "very poor",
+    text: "очень плохое",
   },
 ];
 

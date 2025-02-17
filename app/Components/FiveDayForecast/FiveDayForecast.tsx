@@ -5,10 +5,11 @@ import { calender } from "@/app/utils/icons";
 import { kelvinToCelsius, unixToDay } from "@/app/utils/misc";
 import { Skeleton } from "@/components/ui/skeleton";
 export default function FiveDayForecast() {
-  const { fiveDayForecast } = useGlobalContext();
-  const { city, list } = fiveDayForecast;
-  if (!fiveDayForecast || !city || !list) {
-    return <Skeleton className="w-full h-[12rem]" />;
+  const { fiveDayForecast, geoCodedList } = useGlobalContext();
+  const cityName = geoCodedList?.[0]?.local_names.ru;
+  const { list } = fiveDayForecast;
+  if (!fiveDayForecast || !cityName || !list) {
+    return <Skeleton className="w-full h-[42rem]" />;
   }
   const processData = (
     dailyData: {
@@ -50,7 +51,7 @@ export default function FiveDayForecast() {
     >
       <div>
         <h2 className="flex items-center gap-2 font-medium">
-          {calender} 5-Day Forecast for {city.name}
+          {calender} 5-ти дневный прогноз для города {cityName}
         </h2>
 
         <div className="forecast-list pt-3">
@@ -62,8 +63,8 @@ export default function FiveDayForecast() {
               >
                 <p className="text-xl min-w-[3.5rem]">{day.day}</p>
                 <p className="text-sm flex justify-between">
-                  <span>(low)</span>
-                  <span>(high)</span>
+                  <span>(мин)</span>
+                  <span>(макс)</span>
                 </p>
 
                 <div className="flex-1 flex items-center justify-between gap-4">

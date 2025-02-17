@@ -18,7 +18,7 @@ export const GlobalContextProvider = ({ children }) => {
   const [inputValue, setInputValue] = useState("");
 
   const [activeCityCoords, setActiveCityCoords] = useState([
-    51.752021, -1.257726,
+    54.7387, 55.972,
   ]);
 
   const [airQuality, setAirQuality] = useState({});
@@ -60,7 +60,7 @@ export const GlobalContextProvider = ({ children }) => {
   const fetchGeoCodedList = async (search) => {
     try {
       const res = await axios.get(`/api/geocoded?search=${search}`);
-
+      console.log(res.data);
       setGeoCodedList(res.data);
     } catch (error) {
       console.log("Error fetching geocoded list: ", error.message);
@@ -113,7 +113,6 @@ export const GlobalContextProvider = ({ children }) => {
         forecast,
         airQuality,
         fiveDayForecast,
-        uvIndex,
         geoCodedList,
         inputValue,
         handleInput,
@@ -123,6 +122,7 @@ export const GlobalContextProvider = ({ children }) => {
       <GlobalContextUpdate.Provider
         value={{
           setActiveCityCoords,
+          setGeoCodedList,
         }}
       >
         {children}

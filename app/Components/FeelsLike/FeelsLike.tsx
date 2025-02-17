@@ -18,13 +18,13 @@ export default function FeelsLike() {
   ) => {
     const avgTemp = (minTemp + maxTemp) / 2;
     if (feels_like > avgTemp && feels_like <= avgTemp + 5) {
-      return "Feels close to the actual temperature";
+      return "По ощущениям температура близка к фактической";
     } else if (feels_like > avgTemp + 5) {
-      return "Feels warmer than the actual temperature";
+      return "На ощупь теплее, чем на самом деле";
     } else if (feels_like < avgTemp - 5) {
-      return "Feels cooler than the actual temperature";
+      return "На ощупь холоднее, чем на самом деле";
     } else {
-      return "Feels exactly the same as the actual temperature";
+      return "По ощущениям точно такая же, как и фактическая температура";
     }
   };
   return (
@@ -33,7 +33,9 @@ export default function FeelsLike() {
     border rounded-lg flex flex-col gap-8 dark:bg-dark-gray shadow-sm dark:shadow-none"
     >
       <div className="top">
-        <h2 className="flex items-center gap-2 font-md">{thermo}Feels Like</h2>
+        <h2 className="flex items-center gap-2 font-md">
+          {thermo}Ощущается как
+        </h2>
         <p className="pt-2 text-2xl">{kelvinToCelsius(feels_like)}°C</p>
       </div>
       <p className="text-sm">{feelsLikeText(feels_like, temp_min, temp_max)}</p>

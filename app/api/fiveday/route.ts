@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const lat = searchParams.get("lat");
     const lon = searchParams.get("lon");
   try {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=ru`;
     const response = await fetch(url, {
       next: {
         revalidate: 3600,

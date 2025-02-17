@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useMemo, useState } from "react";
 import moment from "moment";
 import { useGlobalContext } from "@/app/context/GlobalContext";
 import { kelvinToCelsius } from "@/app/utils/misc";
@@ -15,8 +15,12 @@ import {
   navigation,
 } from "@/app/utils/icons";
 import { Skeleton } from "@/components/ui/skeleton";
+import "moment/locale/ru";
+
+moment.locale("ru");
 export default function Temperature() {
-  const { forecast } = useGlobalContext();
+  const { forecast, geoCodedList } = useGlobalContext();
+  const cityName = geoCodedList?.[0]?.local_names.ru;
   const [localTime, setLocalTime] = useState<string>("");
   const [currentDay, setCurrentDay] = useState<string>("");
 
@@ -27,12 +31,12 @@ export default function Temperature() {
       if (forecast?.timezone) {
         const localMoment = moment().utcOffset(forecast.timezone / 60);
         // custom format: 24 hour format
-        const formattedTime = localMoment.format("HH:mm:ss");
+        const formattedTime = localMoment.format("HH:mm");
         // day of the week
         const day = localMoment.format("dddd");
 
         setLocalTime(formattedTime);
-        setCurrentDay(day);
+        setCurrentDay(day.charAt(0).toUpperCase() + day.slice(1));
       }
     }, 1000);
 
@@ -41,7 +45,7 @@ export default function Temperature() {
 
   // Проверка наличия данных
   if (!forecast || !forecast.weather || !forecast.timezone) {
-    return <Skeleton className="flex flex-col" />;
+    return <Skeleton className="w-full h-[25rem]" />;
   }
 
   const { main, weather, timezone, name } = forecast;
@@ -83,7 +87,7 @@ export default function Temperature() {
         <span className="text-md">{localTime}</span>
       </p>
       <p className="pt-2 font-bold flex gap-1">
-        <span>{name}</span>
+        <span>{cityName}</span>
         <span>{navigation}</span>
       </p>
       <p className="py-10 text-9xl font-bold self-center">{temp}°C</p>
@@ -96,8 +100,8 @@ export default function Temperature() {
           </p>
         </div>
         <p className="flex items-center gap-2">
-          <span>Low : {minTemp}°C</span>
-          <span>High : {maxTemp}°C</span>
+          <span>Мин: {minTemp}°C</span>
+          <span>Макс: {maxTemp}°C</span>
         </p>
       </div>
     </div>

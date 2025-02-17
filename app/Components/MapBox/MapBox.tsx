@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function MapBox() {
   const { forecast } = useGlobalContext();
+
   const activeCityCords = forecast?.coord;
 
   // Если данные не загружены, показываем скелетон
@@ -19,6 +20,7 @@ export default function MapBox() {
   const zoom = 10;
 
   maptilersdk.config.apiKey = "x5vrNZuEZuRYtsER280n";
+  maptilersdk.config.primaryLanguage = maptilersdk.Language.RUSSIAN;
 
   // Инициализация карты
   useEffect(() => {
@@ -51,11 +53,10 @@ export default function MapBox() {
   }, [activeCityCords]); // Зависимость от activeCityCords
 
   return (
-    <div className="flex-1 basis-[50%] border rounded-lg">
+    <div className="flex-1 basis-[50%] border rounded-lg overflow-hidden p-2">
       <div
         ref={mapContainer}
-        className="map-container"
-        style={{ width: "100%", height: "400px" }}
+        className="map-container rounded-lg h-[20rem] w-full"
       ></div>
     </div>
   );
