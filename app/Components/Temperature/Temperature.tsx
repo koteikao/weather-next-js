@@ -14,7 +14,7 @@ import {
   cloudy,
   navigation,
 } from "@/app/utils/icons";
-
+import { Skeleton } from "@/components/ui/skeleton";
 export default function Temperature() {
   const { forecast } = useGlobalContext();
   const [localTime, setLocalTime] = useState<string>("");
@@ -40,10 +40,8 @@ export default function Temperature() {
   }, [forecast?.timezone]);
 
   // Проверка наличия данных
-  if (!forecast || !forecast.weather) {
-    return (
-      <div className="flex items-center justify-center h-full">Loading...</div>
-    );
+  if (!forecast || !forecast.weather || !forecast.timezone) {
+    return <Skeleton className="flex flex-col" />;
   }
 
   const { main, weather, timezone, name } = forecast;
@@ -77,7 +75,7 @@ export default function Temperature() {
 
   return (
     <div
-      className="pt-6 pb-5 px-4 border rounded-lg flex flex-col 
+      className="pt-8 pb-5 px-4 border rounded-lg flex flex-col 
         justify-between dark:bg-dark-grey shadow-sm dark:shadow-none"
     >
       <p className="flex justify-between items-center gap-2">

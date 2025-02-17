@@ -1,4 +1,4 @@
-const DefaultCities = [
+const defaultCities = [
   {
     id: 1,
     name: "Moscow",
@@ -7,4 +7,4 @@ const DefaultCities = [
   },
 ];
 
-export default DefaultCities;
+export default defaultCities;

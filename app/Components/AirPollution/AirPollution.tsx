@@ -22,8 +22,6 @@ export default function AirPollution() {
   const filteredValue = airQualityValueText.find((item) => {
     return item.rating === airQualityValue;
   });
-  console.log(airQualityValue);
-  console.log(filteredValue);
 
   return (
     <div
