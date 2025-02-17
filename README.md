@@ -21,4 +21,4 @@
 Создайте файл .env и добавьте в него ваш API ключ:
 OPENWEATHERMAP_API_KEY=YOUR_API_KEY
 
-![screenshot](screenshot.png)
+![screenshot_app](screenshot_app.png)
