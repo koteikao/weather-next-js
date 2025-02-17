@@ -5,15 +5,17 @@
 - OpenWeatherMap (https://openweathermap.org)
 - MapTiler (https://maptiler.com)
 
-Используемые библиотеки:
+Используемые библиотеки и технологии:
 
+- webApi
 - Next.js
+- TypeScript
 - TailwindCSS
 - React
-- React-hook-form
 - React-icons(Lucide React)
 - React-moment(Moment.js)
 - React-router-dom(Next.js)
+- shadcn/ui
 
 Для получение данных о погоде и координатах города используется API OpenWeatherMap.
 Создайте файл .env и добавьте в него ваш API ключ:
