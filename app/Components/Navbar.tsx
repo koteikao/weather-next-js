@@ -25,7 +25,9 @@ export default function Navbar() {
           />
           <Button
             className="source-code flex items-center gap-2"
-            onClick={() => router.push("https//github.com")}
+            onClick={() =>
+              router.push("https://github.com/koteikao/weather-next-js")
+            }
           >
             {github} Source Code
           </Button>
