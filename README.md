@@ -8,6 +8,7 @@
 Используемые библиотеки и технологии:
 
 - webApi
+- axios
 - Next.js
 - TypeScript
 - TailwindCSS
